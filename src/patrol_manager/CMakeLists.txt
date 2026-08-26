@@ -10,6 +10,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+
 
 
 add_executable(velocity_publisher src/velocity_publisher.cpp)
@@ -23,7 +25,9 @@ add_executable(odom_monitor src/odom_monitor.cpp)
     odom_monitor
     rclcpp
     nav_msgs
+    std_srvs
   )
+
 
 target_include_directories(velocity_publisher PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -35,12 +39,13 @@ ament_target_dependencies(
   "geometry_msgs"
 )
 
- install(
+install(
     TARGETS
       velocity_publisher
       odom_monitor
     DESTINATION lib/${PROJECT_NAME}
-  )
+)
+
 
 
 

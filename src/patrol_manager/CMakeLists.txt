@@ -17,16 +17,16 @@ find_package(std_srvs REQUIRED)
 add_executable(velocity_publisher src/velocity_publisher.cpp)
 add_executable(odom_monitor src/odom_monitor.cpp)
 
-  target_compile_features(
-    odom_monitor PUBLIC cxx_std_17
-  )
+target_compile_features(
+  odom_monitor PUBLIC cxx_std_17
+)
 
-  ament_target_dependencies(
-    odom_monitor
-    rclcpp
-    nav_msgs
-    std_srvs
-  )
+ament_target_dependencies(
+  odom_monitor
+  rclcpp
+  nav_msgs
+  std_srvs
+)
 
 
 target_include_directories(velocity_publisher PUBLIC
@@ -40,10 +40,10 @@ ament_target_dependencies(
 )
 
 install(
-    TARGETS
-      velocity_publisher
-      odom_monitor
-    DESTINATION lib/${PROJECT_NAME}
+  TARGETS
+    velocity_publisher
+    odom_monitor
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 
